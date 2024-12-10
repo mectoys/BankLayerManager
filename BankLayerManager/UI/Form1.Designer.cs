@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form1
+    partial class frmbanco
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -109,6 +109,7 @@
             this.nuevo.TabIndex = 0;
             this.nuevo.Text = "Nuevo";
             this.nuevo.UseVisualStyleBackColor = true;
+            this.nuevo.Click += new System.EventHandler(this.nuevo_Click);
             // 
             // codigo
             // 
@@ -144,7 +145,7 @@
             this.eliminar.Text = "Eliminar";
             this.eliminar.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // frmbanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +154,7 @@
             this.Controls.Add(this.busqueda);
             this.Controls.Add(this.gridbancos);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "frmbanco";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.gridbancos)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -1,20 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BLL;
+using Models;
 namespace UI
 {
-    public partial class Form1 : Form
+    public partial class frmbanco : Form
     {
-        public Form1()
+        private BancoBLL BLL = new BancoBLL();
+        DataSet dsdatos;
+        int Tipo = 0;
+        public frmbanco()
         {
             InitializeComponent();
+            CargarBancos();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void CargarBancos()
+        {
+            dsdatos = BLL.ObtenerBancos();
+            gridbancos.DataSource = dsdatos;
+            gridbancos.DataMember = "Datos";
+        }
+
+        private void aceptar_Click(object sender, EventArgs e)
+        {
+            var banco = new Banco
+            {
+                descripcion = descripcion.Text
+            };
+
+            if (Tipo == 0)
+            {
+                BLL.AgregarBanco(banco);
+            }
+            CargarBancos();
+        }
+
+        private void nuevo_Click(object sender, EventArgs e)
+        {
+            Tipo = 0;
+            codigo.Clear();
+            descripcion.Clear();
+            descripcion.Focus();
         }
     }
 }
