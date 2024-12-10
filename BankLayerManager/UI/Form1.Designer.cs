@@ -126,6 +126,7 @@
             this.aceptar.TabIndex = 1;
             this.aceptar.Text = "Aceptar";
             this.aceptar.UseVisualStyleBackColor = true;
+            this.aceptar.Click += new System.EventHandler(this.aceptar_Click);
             // 
             // label2
             // 
