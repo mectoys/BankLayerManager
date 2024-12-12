@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using System.ComponentModel;
 namespace DAL
 {
     public class BancoRepository
@@ -35,6 +36,34 @@ namespace DAL
                 using (var command = new MySqlCommand(sql, conn))
                 {
                     command.Parameters.AddWithValue("@descripcion", banco.descripcion);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        public void UpdateBanco(Banco banco)
+        {
+            using (var conn = dBConnection.GetConnection())
+            {
+                conn.Open();
+                var sql = "UPDATE voucher.bancos SET descripcion= @descripcion " +
+                        " WHERE idbco=@id";
+                using (var command=new MySqlCommand(sql,conn))
+                {
+                    command.Parameters.AddWithValue("@descripcion", banco.descripcion);
+                    command.Parameters.AddWithValue("@id", banco.idbco);
+                    command.ExecuteNonQuery();
+                }
+            }            
+        }
+        public  void DeleteBanco(Banco banco)
+        {
+            using (var conn=dBConnection.GetConnection())
+            {
+                conn.Open();
+                var sql = "DELETE FROM voucherdb.bancos WHERE idbco= @id";
+                using (var command= new MySqlCommand(sql,conn))
+                {
+                    command.Parameters.AddWithValue("id", banco.idbco);
                     command.ExecuteNonQuery();
                 }
             }
