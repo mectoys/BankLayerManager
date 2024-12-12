@@ -29,6 +29,11 @@ BankLayerManager es una aplicación de escritorio desarrollada en C# con arquite
 3. Crear la tabla `Bancos` en la base de datos con el siguiente script:
    ```sql
    CREATE TABLE Bancos (
-       Id INT AUTO_INCREMENT PRIMARY KEY,
-       Descripcion VARCHAR(255) NOT NULL
+       idbco INT AUTO_INCREMENT PRIMARY KEY,
+       descripcion VARCHAR(255) NOT NULL
    );
+Contribuciones
+¡Contribuciones son bienvenidas! Si deseas mejorar este proyecto, crea un fork y envía un pull request.
+
+Autor
+Creado por Jose Ponciano.
