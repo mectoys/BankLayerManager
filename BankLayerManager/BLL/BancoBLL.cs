@@ -22,6 +22,11 @@ namespace BLL
         }
 
         public void AgregarBanco(Banco banco) => _bancoRepository.InsertBanco(banco);
+  
+        public void ActualizarBanco(Banco banco) => _bancoRepository.UpdateBanco(banco);
+
+        public void EliminarBanco(Banco banco) => _bancoRepository.DeleteBanco(banco);
+
 
     }
 }
