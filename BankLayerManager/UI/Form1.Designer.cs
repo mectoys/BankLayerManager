@@ -58,6 +58,7 @@
             this.busqueda.Name = "busqueda";
             this.busqueda.Size = new System.Drawing.Size(305, 22);
             this.busqueda.TabIndex = 14;
+            this.busqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.busqueda_KeyPress);
             // 
             // gridbancos
             // 
@@ -68,6 +69,7 @@
             this.gridbancos.RowTemplate.Height = 24;
             this.gridbancos.Size = new System.Drawing.Size(392, 179);
             this.gridbancos.TabIndex = 12;
+            this.gridbancos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridbancos_CellClick);
             // 
             // groupBox1
             // 
@@ -145,6 +147,7 @@
             this.eliminar.TabIndex = 2;
             this.eliminar.Text = "Eliminar";
             this.eliminar.UseVisualStyleBackColor = true;
+            this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
             // 
             // frmbanco
             // 

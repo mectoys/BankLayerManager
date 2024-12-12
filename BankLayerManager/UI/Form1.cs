@@ -39,6 +39,11 @@ namespace UI
             {
                 BLL.AgregarBanco(banco);
             }
+            else
+            {
+                banco.idbco = Convert.ToInt32(codigo.Text);
+                BLL.ActualizarBanco(banco);
+            }
             CargarBancos();
         }
 
@@ -48,6 +53,43 @@ namespace UI
             codigo.Clear();
             descripcion.Clear();
             descripcion.Focus();
+        }
+        private void BuscarInformacion(TextBox valorBuscar)
+        { 
+            DataView dv = null;
+            dv=new DataView(dsdatos.Tables["Datos"],"descripcion LIKE '*"+ valorBuscar.Text.Replace("'","")+"*' ", "descripcion Desc",DataViewRowState.CurrentRows);
+            gridbancos.DataSource= dv;
+        }
+
+        private void gridbancos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Tipo = 1;
+            codigo.Text = gridbancos[0,gridbancos.CurrentCell.RowIndex].Value.ToString();
+            descripcion.Text = gridbancos[1,gridbancos.CurrentCell.RowIndex].Value.ToString();
+            descripcion.Focus();
+        }
+
+        private void busqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) BuscarInformacion(busqueda);
+
+        }
+
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+            if (codigo.Text.Length > 0)
+            {
+                DialogResult resultado = MessageBox.Show("Desea eliminar el registro?", Application.ProductName, MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    var banco = new Banco
+                    {
+                        idbco = Convert.ToInt32(codigo.Text)
+                    };
+                    BLL.EliminarBanco(banco);
+                    CargarBancos();
+                }
+            }
         }
     }
 }

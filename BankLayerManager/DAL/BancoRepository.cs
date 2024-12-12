@@ -45,7 +45,7 @@ namespace DAL
             using (var conn = dBConnection.GetConnection())
             {
                 conn.Open();
-                var sql = "UPDATE voucher.bancos SET descripcion= @descripcion " +
+                var sql = "UPDATE voucherdb.bancos SET descripcion= @descripcion " +
                         " WHERE idbco=@id";
                 using (var command=new MySqlCommand(sql,conn))
                 {
