@@ -1,7 +1,8 @@
 # BankLayerManager
 
 BankLayerManager es una aplicación de escritorio desarrollada en C# con arquitectura en capas (DAL, BLL y UI) que permite realizar operaciones CRUD sobre una base de datos MySQL para la gestión de bancos. Este proyecto sigue buenas prácticas de diseño de software, implementando el patrón Repository y principios de separación de responsabilidades.
-
+![Captura de pantalla 2024-12-15 130105](https://github.com/user-attachments/assets/429e4378-b70b-4774-bc93-8a07a3d7c7f0)
+Versión UI:1.0
 ## Funcionalidades
 - **Gestión de Bancos:**
   - Crear, editar, eliminar y listar bancos.
